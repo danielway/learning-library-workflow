@@ -1,0 +1,19 @@
+{
+  "name": "learning-library-workflow",
+  "version": "0.1.0",
+  "description": "Test library being used to learn common JS pipeline tooling.",
+  "main": "dist/learning-library-workflow.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielway/learning-library-workflow.git"
+  },
+  "author": "Daniel Way <projects@danieldway.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/danielway/learning-library-workflow/issues"
+  },
+  "homepage": "https://github.com/danielway/learning-library-workflow#readme"
+}
