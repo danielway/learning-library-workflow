@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/danielway/learning-library-workflow/issues"
   },
-  "homepage": "https://github.com/danielway/learning-library-workflow#readme"
+  "homepage": "https://github.com/danielway/learning-library-workflow#readme",
+  "devDependencies": {
+    "typescript": "^3.7.5"
+  }
 }
