@@ -5,26 +5,21 @@
   "instrument": true,
   "check-coverage": true,
   "reporter": [ "text-summary" ],
-
   "extension": [ ".ts" ],
-  
   "include": [ "src/**/*.ts" ],
   "exclude": [
     "node_modules/**",
     "**/*.d.ts",
     "**/*.test.ts"
   ],
-  
   "lines": 60,
   "branches": 60,
   "functions": 60,
   "statements": 60,
-  
   "watermarks": {
     "lines": [ 80, 90 ],
     "branches": [ 80, 90 ],
     "functions": [ 80, 90 ],
     "statements": [ 80, 90 ]
   }
-
 }
