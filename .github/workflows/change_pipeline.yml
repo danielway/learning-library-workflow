@@ -18,7 +18,7 @@ jobs:
       uses: actions/upload-artifact@v1.0.0
       with:
         name: build-artifact
-        path: .
+        path: ./dist
   test:
     runs-on: ubuntu-latest
     needs: build
@@ -27,6 +27,7 @@ jobs:
         uses: actions/download-artifact@v1.0.0
         with:
           name: build-artifact
+          path: ./dist
       - name: Execute tests with coverage
         run: npm run coverage
   lint:
@@ -37,5 +38,6 @@ jobs:
         uses: actions/download-artifact@v1.0.0
         with:
           name: build-artifact
+          path: ./dist
       - name: Execute linting
         run: npm run lint
