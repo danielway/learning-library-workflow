@@ -1,9 +1,9 @@
 export class TestService {
   public test () {
-    return 'Hello world!'
+    return 'Hello world!!'
   }
 
   public test2 () {
-    return 'Hello world 2!'
+    return 'Hello world 2!';
   }
 }
