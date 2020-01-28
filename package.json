@@ -7,7 +7,7 @@
   "scripts": {
     "build": "rimraf dist && tsc && rollup -c rollup.config.ts",
     "test": "mocha -exit -require ts-node/register -colors test/**/*.ts",
-    "coverage": "nyc npm run test ; rimraf .nyc_output",
+    "coverage": "nyc npm run test",
     "lint": "eslint --ext .ts src/",
     "commit": "npx git-cz"
   },
