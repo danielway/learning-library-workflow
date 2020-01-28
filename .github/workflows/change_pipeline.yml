@@ -1,21 +1,21 @@
 name: Change pipeline
 
-on: push
+on: [push, pull_request]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2.0.0
+      uses: actions/checkout@v2
     - name: Setup Node.js
-      uses: actions/setup-node@v1.1.0
+      uses: actions/setup-node@v1
     - name: Install dependencies
       run: npm ci
     - name: Execute build
       run: npm run build
     - name: Upload artifacts
-      uses: actions/upload-artifact@v1.0.0
+      uses: actions/upload-artifact@v1
       with:
         name: build-artifact
         path: ./dist
@@ -24,45 +24,43 @@ jobs:
     needs: build
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2.0.0
+        uses: actions/checkout@v2
       - name: Download artifacts
-        uses: actions/download-artifact@v1.0.0
+        uses: actions/download-artifact@v1
         with:
           name: build-artifact
           path: ./dist
       - name: Setup Node.js
-        uses: actions/setup-node@v1.1.0
+        uses: actions/setup-node@v1
       - name: Install dependencies
         run: npm ci
       - name: Execute unit tests
         run: npm run test
       - name: Execute tests with coverage
         run: npm run coverage
-  lint-code:
+  lint:
     runs-on: ubuntu-latest
     needs: build
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2.0.0
+        uses: actions/checkout@v2
       - name: Download artifacts
-        uses: actions/download-artifact@v1.0.0
+        uses: actions/download-artifact@v1
         with:
           name: build-artifact
           path: ./dist
       - name: Setup Node.js
-        uses: actions/setup-node@v1.1.0
+        uses: actions/setup-node@v1
       - name: Install dependencies
         run: npm ci
       - name: Execute code linting
         run: npm run lint
-  lint-commits:
+  commits:
     runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2.0.0
-      - name: Setup Node.js
-        uses: actions/setup-node@v1.1.0
-      - name: Install dependencies
-        run: npm ci
+        uses: actions/checkout@v2
       - name: Execute commit linting
-        run: npm run lint:commits
+        uses: wagoid/commitlint-github-action@v1
