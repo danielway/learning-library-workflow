@@ -1,6 +1,6 @@
 name: Change pipeline
 
-on: [push, pull_request]
+on: push
 
 jobs:
   build:
@@ -55,12 +55,3 @@ jobs:
         run: npm ci
       - name: Execute code linting
         run: npm run lint
-  commits:
-    runs-on: ubuntu-latest
-    env:
-      GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      - name: Execute commit linting
-        uses: wagoid/commitlint-github-action@v1
