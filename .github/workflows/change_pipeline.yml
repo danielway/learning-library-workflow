@@ -1,9 +1,15 @@
 name: Change pipeline
 
-on: push
+on:
+  push:
+    branches-ignore:
+      - master
+      - next
+      - 'release/**'
 
 jobs:
   build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -20,6 +26,7 @@ jobs:
           name: build-artifact
           path: ./dist
   test:
+    name: Test
     runs-on: ubuntu-latest
     needs: build
     steps:
@@ -39,6 +46,7 @@ jobs:
       - name: Execute tests with coverage
         run: npm run coverage
   lint:
+    name: Lint
     runs-on: ubuntu-latest
     needs: build
     steps:
