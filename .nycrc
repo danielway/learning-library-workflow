@@ -1,6 +1,10 @@
 {
+  "all": true,
   "cache": false,
+  "sourceMap": true,
+  "instrument": true,
   "check-coverage": true,
+  "reporter": [ "text-summary" ],
   "extension": [ ".ts" ],
   "include": [ "src/**/*.ts" ],
   "exclude": [
@@ -8,15 +12,14 @@
     "**/*.d.ts",
     "**/*.test.ts"
   ],
-  "sourceMap": true,
-  "reporter": [ "text-summary" ],
-  "all": true,
-  "instrument": true,
-  "branches": 90,
-  "lines": 90,
-  "functions": 90,
-  "statements": 90,
+  "lines": 60,
+  "branches": 60,
+  "functions": 60,
+  "statements": 60,
   "watermarks": {
-    "lines": [ 80, 90 ]
+    "lines": [ 80, 90 ],
+    "branches": [ 80, 90 ],
+    "functions": [ 80, 90 ],
+    "statements": [ 80, 90 ]
   }
 }
